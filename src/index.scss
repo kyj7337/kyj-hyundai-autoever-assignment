@@ -1,0 +1,32 @@
+// @font-face {
+//   font-family: Pretendard;
+//   font-style: normal;
+//   font-weight: 400;
+//   src: url('./assets/font/Pretendard-Black.woff2') format('woff2');
+// }
+
+@font-face {
+  font-family: KiaSignature;
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/font/KiaSignatureFixLight.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: KiaSignature;
+  font-style: normal;
+  font-weight: 500;
+  /* font-display: swap; */
+  src: url('./assets/font/KiaSignatureFixRegular.ttf') format('truetype');
+}
+@font-face {
+  font-family: KiaSignature;
+  font-style: normal;
+  font-weight: 700;
+  /* font-display: swap; */
+  src: url('./assets/font/KiaSignatureFixBold.ttf') format('truetype');
+}
+body {
+  margin: 0;
+  font-family: 'KiaSignature';
+}
