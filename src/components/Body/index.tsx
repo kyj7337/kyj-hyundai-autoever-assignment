@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Title from './components/Title';
 import './index.scss';
 import Tabs from './components/Tabs';
+import SearchFaq from './components/SearchAndFaq';
 
 export type Tab = 'intro' | 'use';
 
@@ -13,6 +14,7 @@ export default function Body() {
       <div className='content'>
         <Title />
         <Tabs selectTab={selectTab} setSelectTab={setSelectTab} />
+        <SearchFaq selectTab={selectTab} />
       </div>
     </section>
   );
