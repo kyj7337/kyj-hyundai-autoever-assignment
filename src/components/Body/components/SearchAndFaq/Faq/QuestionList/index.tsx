@@ -77,16 +77,7 @@ export default function QuestionList({ selectTab }: { selectTab: Tab }) {
     return (
       <div ref={faqRef} className='faq-container'>
         {faqListData.map((item, idx) => {
-          return (
-            <ListItem
-              item={item}
-              itemIdx={idx}
-              key={idx}
-              // key={item.id}
-              selectIdx={selectIdx}
-              setSelectIdx={setSelectIdx}
-            />
-          );
+          return <ListItem item={item} itemIdx={idx} key={item.id} selectIdx={selectIdx} setSelectIdx={setSelectIdx} />;
         })}
         {nextExist && (
           <div onClick={onClickMoreData} className='more-data-load-container'>
