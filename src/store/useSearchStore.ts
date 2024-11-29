@@ -7,7 +7,7 @@ interface SearchStore {
   /** 카테고리 */
   categoryId: string;
   setCategoryId: (v: string) => void;
-  /** 검색 키워드 입력 후 전송 */
+  /** 검색 키워드 입력 하여 검색 요청했을 경우 true */
   searchAction: boolean;
   setSearchAction: (v: boolean) => void;
 

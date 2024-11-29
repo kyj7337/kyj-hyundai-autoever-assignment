@@ -2,13 +2,12 @@ import { Tab } from '@/components/Body';
 import { useSearchStore } from '@/store/useSearchStore';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-interface FaqListFetcherArgs {
+export interface FaqListFetcherArgs {
   limit: number;
   offset: number;
   categoryId: string;
   tab: Tab;
-  // searchString: string;
-  // setSearchAction: (v: boolean) => void;
+  searchString?: string;
 }
 
 export interface FaqResponse {
@@ -36,14 +35,8 @@ interface Params {
 }
 
 const fetcher = async (args: FaqListFetcherArgs) => {
-  const {
-    categoryId,
-    limit,
-    offset,
-    tab,
-    // searchString, setSearchAction
-  } = args;
-  // const questionExist = !!searchString;
+  const { categoryId, limit, offset, tab, searchString } = args;
+  const questionExist = !!searchString;
   const params: Params = {
     limit,
     offset,
@@ -51,9 +44,9 @@ const fetcher = async (args: FaqListFetcherArgs) => {
     faqCategoryID: categoryId,
     //  question: '가입'
   };
-  // if (questionExist) {
-  //   params.question = searchString;
-  // }
+  if (questionExist) {
+    params.question = searchString;
+  }
 
   return axios
     .get<FaqResponse>('/faq', {
@@ -66,12 +59,11 @@ const fetcher = async (args: FaqListFetcherArgs) => {
 };
 
 export default function useGetFaqList(tab: Tab) {
-  const { limit, offset, categoryId } = useSearchStore();
+  const { limit, offset, categoryId, searchAction, searchString } = useSearchStore();
 
   return useQuery({
-    queryKey: ['/faq', categoryId, tab, offset],
-    queryFn: () => fetcher({ limit, offset, tab, categoryId }),
-    /** 검색어가 있을 경우는 searchAction 이 활성화 되어 있어야 GET 요청한다. */
+    queryKey: ['/faq', categoryId, tab, offset, searchAction],
+    queryFn: () => fetcher({ limit, offset, tab, categoryId, searchString }),
     staleTime: Infinity,
   });
 }

@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction } from 'react';
 import { Tab } from '../..';
 import './index.scss';
+import { useSearchStore } from '@/store/useSearchStore';
 
 interface TabsProps {
   selectTab: Tab;
@@ -15,7 +16,7 @@ interface TabList {
 
 export default function Tabs(props: TabsProps) {
   const { selectTab, setSelectTab } = props;
-
+  const { setSearchAction, setSearchString } = useSearchStore();
   const tabs: TabList[] = [
     {
       label: '서비스 도입',
@@ -31,6 +32,8 @@ export default function Tabs(props: TabsProps) {
 
   const onClickTab = (target: Tab) => {
     setSelectTab(target);
+    setSearchAction(false);
+    setSearchString('');
   };
 
   return (
