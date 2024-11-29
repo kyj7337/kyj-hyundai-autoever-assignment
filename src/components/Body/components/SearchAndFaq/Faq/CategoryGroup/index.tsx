@@ -1,8 +1,9 @@
 import { Tab } from '@/components/Body';
 import './index.scss';
-import { Category, introCategory, useCategory } from './constant';
+import { Category } from './constant';
 import useResetCategoryId from '../hooks/useResetCategoryId';
 import { useSearchStore } from '@/store/useSearchStore';
+import useGetCategory from '@/apis/useGetCategory';
 
 interface CategoryGroupProps {
   selectTab: Tab;
@@ -15,22 +16,24 @@ interface CategoryInfo extends Category {
 export default function CategoryGroup(props: CategoryGroupProps) {
   const { selectTab } = props;
   const { categoryId, setCategoryId } = useSearchStore();
+  const { data } = useGetCategory(selectTab);
+
   useResetCategoryId(selectTab);
 
-  const targetCategory = selectTab === 'intro' ? introCategory : useCategory;
-  const modifiedCategory: CategoryInfo[] = targetCategory.map((category) => ({
-    ...category,
-    isActive: categoryId === category.categoryId,
-  }));
+  const modifiedCategory: CategoryInfo[] =
+    data?.map((category) => ({
+      ...category,
+      isActive: categoryId === category.categoryID,
+    })) || [];
 
   return (
     <div className='category-container'>
-      {modifiedCategory.map((category) => {
-        const { categoryId, isActive, label } = category;
+      {modifiedCategory?.map((category) => {
+        const { categoryID, isActive, name } = category;
         const onClickCategory = () => setCategoryId(categoryId);
         return (
-          <div onClick={onClickCategory} className={`category-item ${isActive ? 'checked' : ''}`} key={categoryId}>
-            <span>{label}</span>
+          <div onClick={onClickCategory} className={`category-item ${isActive ? 'checked' : ''}`} key={categoryID}>
+            <span>{name}</span>
           </div>
         );
       })}
