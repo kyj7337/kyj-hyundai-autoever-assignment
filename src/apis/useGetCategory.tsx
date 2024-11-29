@@ -10,7 +10,9 @@ const fetcher = (tab: Tab) =>
         tab,
       },
     })
-    .then(({ data }) => data);
+    .then(({ data }) => {
+      return [{ categoryID: '', name: '전체' }, ...data];
+    });
 
 export default function useGetCategory(tab: Tab) {
   return useQuery({

@@ -30,7 +30,7 @@ export default function CategoryGroup(props: CategoryGroupProps) {
     <div className='category-container'>
       {modifiedCategory?.map((category) => {
         const { categoryID, isActive, name } = category;
-        const onClickCategory = () => setCategoryId(categoryId);
+        const onClickCategory = () => setCategoryId(categoryID);
         return (
           <div onClick={onClickCategory} className={`category-item ${isActive ? 'checked' : ''}`} key={categoryID}>
             <span>{name}</span>
