@@ -1,0 +1,19 @@
+.page-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: var(--h1-fsize);
+  height: var(--h1-height);
+  margin: 0;
+  line-height: var(--line-height-sm);
+  > em {
+    font-size: var(--h1-fsize-sm);
+    font-weight: 400;
+    line-height: var(--line-height-md);
+    margin-top: 0.4em;
+    text-align: center;
+    word-break: keep-all;
+    font-style: normal;
+  }
+}

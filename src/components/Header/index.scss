@@ -1,0 +1,91 @@
+@use '@/common.scss' as mixin;
+
+.header-container {
+  .header-inner {
+    & {
+      display: flex;
+      align-items: center;
+      height: var(--header-height);
+      flex-wrap: wrap;
+      margin: 0 auto;
+      max-width: var(--max-width);
+    }
+    .logo {
+      cursor: pointer;
+    }
+    .header-item-container {
+      flex: 1 1;
+      margin-right: -20px;
+
+      > ul {
+        @include mixin.responsive('tablet') {
+          display: none;
+        }
+        @include mixin.responsive('mobile') {
+          display: none;
+        }
+        & {
+          display: flex;
+          justify-content: flex-end;
+          margin: 0;
+        }
+        // @include mixin.responsive('desktop') {
+        //   font-size: 10px;
+        // }
+        > li {
+          margin: 0 16px;
+          > a {
+            display: block;
+            font-size: 18px;
+            font-weight: 600;
+            padding: 0 4px;
+            color: #000;
+            font-size: 18px;
+            line-height: var(--header-height);
+            position: relative;
+            text-decoration: none;
+            cursor: pointer;
+            &::after {
+              transition: all 0.4s var(--cubic-bezier-primary);
+              background-color: var(--mint-900);
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              content: '';
+              opacity: 0.4;
+              width: 0;
+              height: 4px;
+            }
+            &.select {
+              &::after {
+                width: 100%;
+                opacity: 1;
+              }
+            }
+
+            &:hover {
+              &::after {
+                transition: all 0.4s var(--cubic-bezier-primary);
+                background-color: var(--mint-900);
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                content: '';
+                opacity: 0.4;
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  & {
+    font-size: var(--h1-fsize);
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    padding: 0 var(--side-padding);
+  }
+}
