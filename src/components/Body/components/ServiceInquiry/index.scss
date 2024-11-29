@@ -1,0 +1,56 @@
+@use '@/common.scss' as mixin;
+
+.service-inquiry-container {
+  > h2 {
+    line-height: var(--line-height-sm);
+    font-size: var(--heading-2);
+    margin: var(--heading-2-margin);
+  }
+  .inquiry-box {
+    display: flex;
+    margin: 0 calc(var(--space-md) * -1 / 2);
+    justify-content: space-between;
+    .inquiry-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      border: 1px solid var(--midnight-900);
+      font-size: var(--btn-xxlg-size);
+      line-height: var(--line-height-sm);
+      width: 30%;
+      height: 80px;
+      cursor: pointer;
+      //   @include mixin.responsive('tablet') {
+      //   }
+      //   @include mixin.responsive('mobile') {
+      //   }
+      //   @include mixin.responsive('tablet') {
+      //   }
+      &:hover {
+        background-color: var(--gray-50);
+      }
+      .inquiry-ic {
+        width: 48px;
+        @include mixin.responsive('tablet') {
+          width: 32px;
+        }
+        @include mixin.responsive('mobile') {
+          width: 32px;
+        }
+      }
+      .desc-txt {
+        display: flex;
+        flex-direction: column;
+        .desc {
+          font-weight: bold;
+        }
+        .sub-desc {
+          color: var(--gray-500);
+          font-size: 14px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}
