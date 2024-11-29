@@ -1,4 +1,23 @@
 .category-container {
   display: flex;
   flex-wrap: wrap;
+  gap: 1px;
+  padding-bottom: var(--px-md);
+  border-bottom: 2px solid var(--midnight-900);
+  .category-item {
+    height: var(--btn-md);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: calc(var(--btn-md) / 2);
+    &.checked {
+      background-color: var(--mint-900);
+      color: #fff;
+    }
+    > span {
+      padding: 0 var(--space-sm);
+      letter-spacing: -0.4px;
+      font-weight: 600;
+    }
+  }
 }

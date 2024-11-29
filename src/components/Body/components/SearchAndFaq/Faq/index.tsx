@@ -1,7 +1,6 @@
 import { Tab } from '@/components/Body';
 import './index.scss';
 import { Category, introCategory, useCategory } from './constant';
-import { useState } from 'react';
 import useResetCategoryId from './hooks/useResetCategoryId';
 import { useSearchStore } from '@/store/useSearchStore';
 
@@ -23,7 +22,18 @@ export default function Faq(props: FaqProps) {
     ...category,
     isActive: categoryId === category.categoryId,
   }));
-  console.log(modifiedCategory);
 
-  return <div className='category-container'></div>;
+  return (
+    <div className='category-container'>
+      {modifiedCategory.map((category) => {
+        const { categoryId, isActive, label } = category;
+        const onClickCategory = () => setCategoryId(categoryId);
+        return (
+          <div onClick={onClickCategory} className={`category-item ${isActive ? 'checked' : ''}`} key={categoryId}>
+            <span>{label}</span>
+          </div>
+        );
+      })}
+    </div>
+  );
 }
