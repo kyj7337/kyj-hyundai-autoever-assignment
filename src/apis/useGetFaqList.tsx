@@ -46,7 +46,7 @@ export default function useGetFaqList(tab: Tab) {
   const { limit, offset, categoryId } = useSearchStore();
 
   return useQuery({
-    queryKey: ['/faq', categoryId, tab],
+    queryKey: ['/faq', categoryId, tab, offset],
     queryFn: () => fetcher({ limit, offset, tab, categoryId }),
     staleTime: Infinity,
   });

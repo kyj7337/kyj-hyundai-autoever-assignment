@@ -55,4 +55,45 @@
       }
     }
   }
+  .more-data-load-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--list-more-size);
+    margin-top: calc(var(--px-lg) - 8px);
+    width: 100%;
+    height: 56px;
+    cursor: pointer;
+    .icon {
+      display: block;
+      width: calc(var(--list-more-size) - 4px);
+      height: calc(var(--list-more-size) - 4px);
+      margin-right: 4px;
+      margin-top: -2px;
+      position: relative;
+      &::before {
+        background-color: var(--midnight-900);
+        content: '';
+        height: 2px;
+        left: 0;
+        position: absolute;
+        top: calc(50% - 1px);
+        width: 100%;
+      }
+      &::after {
+        background-color: #05141f;
+        background-color: var(--midnight-900);
+        content: '';
+        height: 2px;
+        left: 0;
+        position: absolute;
+        top: calc(50% - 1px);
+        width: 100%;
+        transform: rotate(90deg);
+      }
+    }
+    .more-txt {
+      font-weight: 500;
+    }
+  }
 }

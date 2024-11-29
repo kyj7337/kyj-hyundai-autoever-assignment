@@ -1,7 +1,7 @@
 import useGetFaqList, { ItemsEntity } from '@/apis/useGetFaqList';
 import { Tab } from '@/components/Body';
 import { useSearchStore } from '@/store/useSearchStore';
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
+import { Dispatch, memo, SetStateAction, useEffect, useRef, useState } from 'react';
 import arrowDown from '@/assets/arrowDown.svg';
 import './index.scss';
 import useChangeCategoryId from './useChangeCategoryId';
@@ -13,7 +13,7 @@ interface ListItemProps {
   itemIdx: number;
 }
 
-const ListItem = (props: ListItemProps) => {
+const ListItem = memo((props: ListItemProps) => {
   const { item, selectIdx, setSelectIdx, itemIdx } = props;
   const answerRef = useRef<HTMLDivElement>(null);
 
@@ -43,34 +43,56 @@ const ListItem = (props: ListItemProps) => {
       </div>
     </div>
   );
-};
+});
 
 export default function QuestionList({ selectTab }: { selectTab: Tab }) {
   const { data: faqRawData } = useGetFaqList(selectTab);
-  const { setOffset, categoryId } = useSearchStore();
+  const { setOffset, categoryId, offset } = useSearchStore();
   const [selectIdx, setSelectIdx] = useState<number | null>(null);
-
+  const faqRef = useRef<HTMLDivElement>(null);
   const [faqListData, setFaqListData] = useState<ItemsEntity[]>([]);
 
   useChangeCategoryId({
     categoryId,
     setFaqListData,
     setSelectIdx,
+    selectTab,
   });
 
   useEffect(() => {
-    if (faqRawData) setFaqListData((prev) => [...prev, ...faqRawData.items]);
+    if (faqRawData) {
+      setFaqListData((prev) => [...prev, ...faqRawData.items]);
+    }
   }, [faqRawData, categoryId]);
 
-  if (faqRawData) {
+  if (faqListData.length >= 1) {
     /** 다음 데이터 존재하는지 여부 */
-    const nextExist = faqRawData?.pageInfo?.nextOffset > 0;
-    console.log(faqListData);
+    const nextExist = faqRawData && faqRawData?.pageInfo?.nextOffset > 0;
+
+    const onClickMoreData = () => {
+      setOffset(offset + 10);
+    };
+
     return (
-      <div className='faq-container'>
+      <div ref={faqRef} className='faq-container'>
         {faqListData.map((item, idx) => {
-          return <ListItem item={item} itemIdx={idx} key={item.id} selectIdx={selectIdx} setSelectIdx={setSelectIdx} />;
+          return (
+            <ListItem
+              item={item}
+              itemIdx={idx}
+              key={idx}
+              // key={item.id}
+              selectIdx={selectIdx}
+              setSelectIdx={setSelectIdx}
+            />
+          );
         })}
+        {nextExist && (
+          <div onClick={onClickMoreData} className='more-data-load-container'>
+            <i className='icon' />
+            <span className='more-txt'>더보기</span>
+          </div>
+        )}
       </div>
     );
   }

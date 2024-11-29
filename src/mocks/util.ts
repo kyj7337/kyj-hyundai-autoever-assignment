@@ -16,7 +16,7 @@ export function searchMatchJsonList(
   });
 
   const filteredList = categorizedList.filter((item, idx) => {
-    if (idx >= offset && idx < limit) {
+    if (idx >= offset && idx < limit + offset) {
       return item;
     }
   });
