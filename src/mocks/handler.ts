@@ -18,12 +18,14 @@ export const handlers = [
     const offset = url.searchParams.get('offset');
     const tab = url.searchParams.get('tab');
     const faqCategoryID = url.searchParams.get('faqCategoryID');
-
+    const question = url.searchParams.get('question');
+    console.log({ question });
     const targetJson = tab === 'intro' ? consultList : usageList;
     const { list, nextOffset, totalRecord } = searchMatchJsonList(targetJson, {
       limit: Number(limit),
       offset: Number(offset),
       faqCategoryID,
+      question,
     });
 
     const result = {

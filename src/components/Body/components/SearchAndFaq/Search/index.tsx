@@ -5,7 +5,7 @@ import './index.scss';
 import { useSearchStore } from '@/store/useSearchStore';
 
 export default function Search() {
-  const { searchString, setSearchString } = useSearchStore();
+  const { searchString, setSearchString, setSearchAction } = useSearchStore();
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchString(e.target.value);
@@ -18,8 +18,7 @@ export default function Search() {
   const hideResetBtn = searchString.length === 0;
 
   const onClickSearch = () => {
-    console.log(`'${searchString}' 으로 API 요청하기`);
-    // TODO: API 요청하기
+    setSearchAction(true);
   };
 
   return (

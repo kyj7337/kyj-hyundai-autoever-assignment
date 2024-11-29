@@ -4,6 +4,7 @@ export function searchMatchJsonList(
     limit: number;
     offset: number;
     faqCategoryID: string | null;
+    question: string | null;
   }
 ) {
   const { faqCategoryID, limit, offset } = options;

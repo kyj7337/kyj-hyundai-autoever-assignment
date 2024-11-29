@@ -46,7 +46,8 @@ const ListItem = memo((props: ListItemProps) => {
 });
 
 export default function QuestionList({ selectTab }: { selectTab: Tab }) {
-  const { data: faqRawData } = useGetFaqList(selectTab);
+  const { data: faqRawData, isSuccess } = useGetFaqList(selectTab);
+
   const { setOffset, categoryId, offset } = useSearchStore();
   const [selectIdx, setSelectIdx] = useState<number | null>(null);
   const faqRef = useRef<HTMLDivElement>(null);
