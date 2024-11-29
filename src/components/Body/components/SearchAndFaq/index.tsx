@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Tab } from '../..';
 import './index.scss';
 import Search from './Search';
@@ -10,11 +9,11 @@ interface SearchFaqProps {
 
 export default function SearchFaq(props: SearchFaqProps) {
   const { selectTab } = props;
-  const [searchString, setSearchString] = useState('');
+
   return (
     <div>
-      <Search searchString={searchString} setSearchString={setSearchString} />
-      <Faq />
+      <Search />
+      <Faq selectTab={selectTab} />
     </div>
   );
 }

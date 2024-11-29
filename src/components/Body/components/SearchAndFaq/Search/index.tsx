@@ -1,14 +1,11 @@
-import { ChangeEvent, Dispatch, SetStateAction } from 'react';
+import { ChangeEvent } from 'react';
 import xIcon from '@/assets/xIcon.svg';
 import searchIcon from '@/assets/searchIcon.svg';
 import './index.scss';
+import { useSearchStore } from '@/store/useSearchStore';
 
-interface SearchProps {
-  searchString: string;
-  setSearchString: Dispatch<SetStateAction<string>>;
-}
-export default function Search(props: SearchProps) {
-  const { searchString, setSearchString } = props;
+export default function Search() {
+  const { searchString, setSearchString } = useSearchStore();
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchString(e.target.value);

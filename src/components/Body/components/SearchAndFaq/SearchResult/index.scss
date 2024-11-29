@@ -1,0 +1,24 @@
+.search-result-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: var(--px-md) 0;
+  > h2 {
+    margin: 0;
+    line-height: var(--line-height-sm);
+    font-size: var(--heading-info);
+    > span {
+      color: var(--mint-900);
+    }
+  }
+  .search-reset-btn {
+    cursor: pointer;
+    > img {
+      width: 22px;
+    }
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 16px;
+  }
+}
