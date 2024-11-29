@@ -7,14 +7,22 @@ export function searchMatchJsonList(
     question: string | null;
   }
 ) {
-  const { faqCategoryID, limit, offset } = options;
+  const { faqCategoryID, limit, offset, question } = options;
   const targetSubCategoryName = !!faqCategoryID && CategoryIdKeyMapper[faqCategoryID];
   // * 어떤 서브 카테고리를 선택했는지 필터한다.
 
-  const categorizedList = jsonList.filter((item) => {
-    if (targetSubCategoryName) return item.categoryName === targetSubCategoryName;
-    else return item;
-  });
+  const categorizedList = jsonList
+    .filter((item) => {
+      if (targetSubCategoryName) return item.categoryName === targetSubCategoryName;
+      else return item;
+    })
+    .filter((item) => {
+      if (!!question) {
+        if (item.question.includes(question)) {
+          return item;
+        }
+      } else return item;
+    });
 
   const filteredList = categorizedList.filter((item, idx) => {
     if (idx >= offset && idx < limit + offset) {

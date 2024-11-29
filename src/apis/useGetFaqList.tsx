@@ -44,7 +44,13 @@ const fetcher = async (args: FaqListFetcherArgs) => {
     // searchString, setSearchAction
   } = args;
   // const questionExist = !!searchString;
-  const params: Params = { limit, offset, tab, faqCategoryID: categoryId };
+  const params: Params = {
+    limit,
+    offset,
+    tab,
+    faqCategoryID: categoryId,
+    //  question: '가입'
+  };
   // if (questionExist) {
   //   params.question = searchString;
   // }

@@ -19,7 +19,7 @@ export const handlers = [
     const tab = url.searchParams.get('tab');
     const faqCategoryID = url.searchParams.get('faqCategoryID');
     const question = url.searchParams.get('question');
-    console.log({ question });
+
     const targetJson = tab === 'intro' ? consultList : usageList;
     const { list, nextOffset, totalRecord } = searchMatchJsonList(targetJson, {
       limit: Number(limit),
