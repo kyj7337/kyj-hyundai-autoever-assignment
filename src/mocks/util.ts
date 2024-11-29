@@ -21,7 +21,8 @@ export function searchMatchJsonList(
     }
   });
   const totalRecord = categorizedList.length;
-  const nextOffset = totalRecord - (limit + offset) >= 10 ? 10 : totalRecord - (limit + offset);
+  const nextCount = totalRecord - (limit + offset);
+  const nextOffset = nextCount >= 10 ? 10 : nextCount <= 0 ? 0 : nextCount;
   // console.log('필터후 결과: ', filteredList);
   return { list: filteredList, totalRecord, nextOffset };
 }
