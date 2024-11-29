@@ -26,7 +26,7 @@ const fetcher = (args: FaqListFetcherArgs) => {
 export default function useGetFaqList(tab: Tab) {
   const { limit, offset, categoryId } = useSearchStore();
   return useQuery({
-    queryKey: ['/faq'],
+    queryKey: ['/faq', categoryId, tab],
     queryFn: () => fetcher({ limit, offset, tab, categoryId }),
   });
 }

@@ -23,7 +23,7 @@ export const useSearchStore = create<SearchStore>((set) => ({
   setCategoryId(v) {
     set({ categoryId: v });
   },
-  limit: 0,
+  limit: 10,
   setLimit(v) {
     set({ limit: v });
   },

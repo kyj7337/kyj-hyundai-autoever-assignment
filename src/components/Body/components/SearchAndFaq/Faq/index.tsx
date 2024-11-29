@@ -6,7 +6,7 @@ export default function Faq({ selectTab }: { selectTab: Tab }) {
   return (
     <div>
       <CategoryGroup selectTab={selectTab} />
-      <QuestionList />
+      <QuestionList selectTab={selectTab} />
     </div>
   );
 }

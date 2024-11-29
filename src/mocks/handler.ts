@@ -3,6 +3,7 @@ import consultTab from './json/consultTab.json';
 import usageTab from './json/usageTab.json';
 import consultList from './json/consultList.json';
 import usageList from './json/usageList.json';
+import { searchMatchJsonList } from './util';
 
 export const handlers = [
   http.get('/category', ({ request }) => {
@@ -16,9 +17,22 @@ export const handlers = [
     const limit = url.searchParams.get('limit');
     const offset = url.searchParams.get('offset');
     const tab = url.searchParams.get('tab');
+    const faqCategoryID = url.searchParams.get('faqCategoryID');
+
+    const targetJson = tab === 'intro' ? consultList : usageList;
+    const { list, nextOffset, totalRecord } = searchMatchJsonList(targetJson, {
+      limit: Number(limit),
+      offset: Number(offset),
+      faqCategoryID,
+    });
+
     const result = {
-      items: [],
-      pageInfo: {},
+      items: list,
+      pageInfo: {
+        limit: Number(limit),
+        nextOffset,
+        totalRecord,
+      },
     };
     return HttpResponse.json(result, { status: 200 });
   }),
