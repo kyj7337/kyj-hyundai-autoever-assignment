@@ -1,0 +1,25 @@
+.tabs-container {
+  cursor: pointer;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  margin-bottom: var(--px-lg);
+  > li {
+    flex: 1 1;
+    border: 1px solid var(--midnight-100);
+    font-size: var(--tab-fsize);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--midnight-900);
+
+    padding: 8px;
+    min-height: var(--btn-xlg2);
+    &.active {
+      font-weight: 600;
+      border-color: var(--midnight-900);
+      background-color: var(--midnight-900);
+      color: #fff;
+    }
+  }
+}
