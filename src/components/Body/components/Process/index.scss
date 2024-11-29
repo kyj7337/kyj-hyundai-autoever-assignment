@@ -1,0 +1,39 @@
+.process-container {
+  > h2 {
+    line-height: var(--line-height-sm);
+    font-size: var(--heading-2);
+    margin: var(--heading-2-margin);
+  }
+  .process-box {
+    display: flex;
+    justify-content: space-between;
+    .process-item {
+      position: relative;
+      padding: 0 24px;
+      .process-ic {
+        width: 48px;
+      }
+      .title {
+        font-weight: bold;
+      }
+      .desc {
+        margin-top: 8px;
+        color: var(--gray-700);
+        font-size: 16px;
+        word-break: keep-all;
+        padding-right: 10px;
+      }
+      &:not(&:last-child) {
+        &::after {
+          position: absolute;
+          content: '';
+          background: url('@/assets/arrowRight.svg');
+          width: 24px;
+          height: 24px;
+          right: 0;
+          top: 50%;
+        }
+      }
+    }
+  }
+}

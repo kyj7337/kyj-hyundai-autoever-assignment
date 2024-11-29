@@ -3,7 +3,7 @@ import { Category } from '@/components/Body/components/SearchAndFaq/Faq/Category
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
-const fetcher = (tab: Tab) =>
+const fetcher = async (tab: Tab) =>
   axios
     .get<Category[]>('/category', {
       params: {

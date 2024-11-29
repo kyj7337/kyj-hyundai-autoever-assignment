@@ -4,6 +4,7 @@ import './index.scss';
 import Tabs from './components/Tabs';
 import SearchFaq from './components/SearchAndFaq';
 import ServiceInquiry from './components/ServiceInquiry';
+import Process from './components/Process';
 
 export type Tab = 'intro' | 'use';
 
@@ -17,6 +18,7 @@ export default function Body() {
         <Tabs selectTab={selectTab} setSelectTab={setSelectTab} />
         <SearchFaq selectTab={selectTab} />
         <ServiceInquiry />
+        <Process />
       </div>
     </section>
   );
