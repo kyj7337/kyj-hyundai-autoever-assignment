@@ -1,6 +1,9 @@
 @use '@/common.scss' as mixin;
 
 .header-container {
+  &.fin {
+    box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.08);
+  }
   .header-inner {
     & {
       display: flex;

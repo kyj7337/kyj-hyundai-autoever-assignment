@@ -11,13 +11,16 @@
     > input {
       width: 100%;
       border: 1px solid var(--midnight-900);
-      font-size: 1rem;
+      font-size: 1.1rem;
       height: var(--btn-xlg2);
       padding-left: 16px;
       padding-right: calc(var(--ic-sm) + 16px + var(--btn-xlg2) - 2px);
       appearance: none;
+      font-weight: 400;
       &::placeholder {
         color: #b4b9bc;
+        font-weight: 500;
+        font-size: 19px;
       }
       &:focus {
         outline: none;
@@ -28,7 +31,7 @@
     }
     .reset-btn {
       position: absolute;
-      right: calc(-1px + var(--btn-xlg2));
+      right: calc(-1px + var(--btn-xlg2) + 10px);
       top: 18px;
       opacity: 1;
       transition: all 0.4s ease;
@@ -40,10 +43,9 @@
     }
     .search-btn {
       position: absolute;
-      width: 30px;
-      right: 0px;
-      top: 13px;
-      right: 10px;
+      width: 32px;
+      top: 12px;
+      right: 12px;
       cursor: pointer;
     }
   }

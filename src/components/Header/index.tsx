@@ -1,5 +1,7 @@
 import logo from '@/assets/logo.svg';
 import './index.scss';
+import { UIEvent, useEffect, useState, WheelEvent } from 'react';
+import useScrollClassName from './hooks/useScrollClassName';
 
 const headerItems = [
   {
@@ -22,8 +24,10 @@ const headerItems = [
 
 export default function Header() {
   const pathname = window.location.pathname;
+  const { headerClassName } = useScrollClassName();
+
   return (
-    <header className='header-container'>
+    <header className={`header-container ${headerClassName}`}>
       <div className='header-inner'>
         <img className='logo' src={logo} />
         <div className='header-item-container'>

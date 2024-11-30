@@ -11,7 +11,7 @@
       position: relative;
       padding: 0 24px;
       .process-ic {
-        width: 48px;
+        // width: 48px;
       }
       .title {
         font-weight: bold;
@@ -22,6 +22,8 @@
         font-size: 16px;
         word-break: keep-all;
         padding-right: 10px;
+        font-weight: 500;
+        line-height: var(--line-height-sm);
       }
       &:not(&:last-child) {
         &::after {
@@ -30,8 +32,8 @@
           background: url('@/assets/arrowRight.svg');
           width: 24px;
           height: 24px;
-          right: 0;
-          top: 50%;
+          right: -5px;
+          top: calc(50% - 5px);
         }
       }
     }

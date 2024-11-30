@@ -34,7 +34,7 @@ export default function Process() {
       <div className='process-box'>
         {processItems.map((step) => {
           return (
-            <div className='process-item'>
+            <div className='process-item' key={step.title}>
               {step.icon}
               <div className='title'>{step.title}</div>
               <div className='desc'>{step.desc}</div>
