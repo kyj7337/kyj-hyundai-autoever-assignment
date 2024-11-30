@@ -6,6 +6,7 @@ import SearchFaq from './components/SearchAndFaq';
 import ServiceInquiry from './components/ServiceInquiry';
 import Process from './components/Process';
 import TopMoveBtn from './components/TopMoveBtn';
+import AppBanner from './components/AppBanner';
 
 export type Tab = 'intro' | 'use';
 
@@ -20,6 +21,7 @@ export default function Body() {
         <SearchFaq selectTab={selectTab} />
         <ServiceInquiry />
         <Process />
+        <AppBanner />
       </div>
       <TopMoveBtn />
     </section>

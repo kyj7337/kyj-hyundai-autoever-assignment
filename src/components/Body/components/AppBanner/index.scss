@@ -1,0 +1,55 @@
+@use '@/common.scss' as mixin;
+.app-banner-container {
+  margin-top: 64px;
+  padding: 40px;
+  background-color: var(--gray-10);
+  border-radius: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow: hidden;
+  flex-direction: column;
+  align-items: center;
+  @include mixin.responsive('mobile') {
+    padding: 20px;
+  }
+  > h2 {
+    font-size: 32px;
+    margin-bottom: 32px;
+    margin-top: 0;
+    @include mixin.responsive('mobile') {
+      font-size: 16px;
+    }
+    .accent {
+      color: var(--mint-900);
+    }
+  }
+  .store-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    @include mixin.responsive('mobile') {
+      flex-direction: column;
+      width: 100%;
+      max-width: 264px;
+      gap: 12px;
+    }
+    .store-box {
+      width: 392px;
+      display: flex;
+      border-radius: 8px;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      background-color: #fff;
+      height: 64px;
+      @include mixin.responsive('mobile') {
+        width: 100%;
+      }
+      .app-icon {
+        margin-right: 4px;
+      }
+    }
+  }
+}

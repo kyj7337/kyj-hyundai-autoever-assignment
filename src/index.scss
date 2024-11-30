@@ -4,3 +4,13 @@ main {
 p {
   margin: 0;
 }
+
+a {
+  text-decoration: unset;
+  &:visited {
+    color: unset;
+  }
+  &:active {
+    color: unset;
+  }
+}
