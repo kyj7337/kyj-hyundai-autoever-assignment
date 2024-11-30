@@ -4,6 +4,7 @@
   min-height: calc(100vh - var(--header-height) - var(--footer-height));
   overflow: hidden;
   padding: 0 var(--side-padding) var(--bottom-padding);
+  position: relative;
   .content {
     margin: 0 auto;
     max-width: 1240px;

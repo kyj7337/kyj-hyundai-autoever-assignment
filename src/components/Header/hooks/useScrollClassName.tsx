@@ -1,21 +1,9 @@
-import { useEffect, useState } from 'react';
+import useScrollDetect from '@/hooks/useScrollDetect';
 
 /** 스크롤을 하면 헤더에 그림자 클래스 이름 추가 */
 export default function useScrollClassName() {
-  const [headerClassName, setHeaderClassName] = useState('');
-
-  const handleScroll = () => {
-    const scrollHeight = window.scrollY;
-    if (scrollHeight > 0) setHeaderClassName('fin');
-    else setHeaderClassName('');
-  };
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  const isScroll = useScrollDetect();
   return {
-    headerClassName,
+    headerClassName: isScroll ? 'fin' : '',
   };
 }

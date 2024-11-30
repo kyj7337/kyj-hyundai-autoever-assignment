@@ -1,0 +1,40 @@
+@use '@/common.scss' as mixin;
+
+.top-move-btn {
+  position: fixed;
+  display: inline-flex;
+  bottom: 40px;
+  right: 32px;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 50%;
+  background-color: #fff;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s var(--cubic-bezier-primary);
+  width: 56px;
+  height: 56px;
+
+  @include mixin.responsive('mobile') {
+    width: 40px;
+    height: 40px;
+    bottom: 24px;
+    right: 16px;
+  }
+
+  &.show {
+    transform: translateY(0px);
+    opacity: 1;
+    cursor: pointer;
+  }
+  &.hide {
+    transform: translateY(50px);
+    opacity: 0;
+    pointer-events: none;
+  }
+  > img {
+    width: 28px;
+    @include mixin.responsive('mobile') {
+      width: 20px;
+    }
+  }
+}
