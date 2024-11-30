@@ -1,0 +1,55 @@
+@use '@/common.scss' as mixin;
+
+.footer-container {
+  background-color: var(--midnight-900);
+  color: var(--gray-400);
+  padding: 0 var(--side-padding);
+  position: relative;
+  .footer-content {
+    display: flex;
+    height: var(--footer-height);
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    max-width: var(--max-width);
+    font-size: 14px;
+    line-height: 24px;
+    @include mixin.responsive('mobile') {
+      font-size: 12px;
+      line-height: 20px;
+    }
+
+    .logo-side {
+      .company-logo {
+        height: 56px;
+      }
+      .copyright {
+        line-height: 24px;
+      }
+    }
+    .desc-side {
+      display: flex;
+      flex-direction: column;
+      font-size: 14px;
+      @include mixin.responsive('mobile') {
+        font-size: 12px;
+      }
+      .utils {
+        display: flex;
+        gap: 24px;
+        color: #fff;
+        font-size: 16px;
+        > span {
+          cursor: pointer;
+          &:hover {
+            text-decoration: underline;
+            text-underline-offset: 4px;
+          }
+          &.privacy {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}

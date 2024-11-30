@@ -17,11 +17,11 @@
     font-size: 32px;
     margin-bottom: 32px;
     margin-top: 0;
-    @include mixin.responsive('mobile') {
-      font-size: 16px;
-    }
     .accent {
       color: var(--mint-900);
+    }
+    @include mixin.responsive('mobile') {
+      font-size: 16px;
     }
   }
   .store-container {

@@ -5,6 +5,7 @@ import { initMockAPI } from './mocks';
 import Header from './components/Header';
 import './index.scss';
 import Body from './components/Body';
+import Footer from './components/Footer';
 function App() {
   const [isReadyToRender, setIsReadyToRender] = useState(false);
   useEffect(() => {
@@ -16,6 +17,7 @@ function App() {
     <main>
       <Header />
       <Body />
+      <Footer />
     </main>
   );
 }
