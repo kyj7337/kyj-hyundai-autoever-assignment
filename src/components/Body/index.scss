@@ -2,7 +2,7 @@
 
 .body-container {
   min-height: calc(100vh - var(--header-height) - var(--footer-height));
-  overflow: hidden;
+  overflow: visible;
   padding: 0 var(--side-padding) var(--bottom-padding);
   position: relative;
   .content {

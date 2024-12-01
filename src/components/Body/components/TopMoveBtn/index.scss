@@ -1,40 +1,51 @@
 @use '@/common.scss' as mixin;
+.move-btn-wrapper {
+  position: sticky;
+  height: 0px;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
 
-.top-move-btn {
-  position: fixed;
-  display: inline-flex;
-  bottom: 40px;
-  right: 32px;
-  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.12);
-  border-radius: 50%;
-  background-color: #fff;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.3s var(--cubic-bezier-primary);
-  width: 56px;
-  height: 56px;
+  .top-move-btn {
+    position: absolute;
+    display: inline-flex;
+    bottom: 40px;
+    // left: calc(100% - 32px);
+    right: 32px;
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 50%;
+    background-color: #fff;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s var(--cubic-bezier-primary);
+    width: 56px;
+    height: 56px;
 
-  @include mixin.responsive('mobile') {
-    width: 40px;
-    height: 40px;
-    bottom: 24px;
-    right: 16px;
-  }
-
-  &.show {
-    transform: translateY(0px);
-    opacity: 1;
-    cursor: pointer;
-  }
-  &.hide {
-    transform: translateY(50px);
-    opacity: 0;
-    pointer-events: none;
-  }
-  > img {
-    width: 28px;
     @include mixin.responsive('mobile') {
-      width: 20px;
+      width: 40px;
+      height: 40px;
+      bottom: 24px;
+      left: 100%;
+    }
+
+    &.show {
+      transform: translateY(0px);
+      opacity: 1;
+      cursor: pointer;
+    }
+    &.hide {
+      transform: translateY(50px);
+      opacity: 0;
+      pointer-events: none;
+    }
+    > img {
+      width: 28px;
+      // position: absolute;
+      // right: 0px;
+      // bottom: 0px;
+      @include mixin.responsive('mobile') {
+        width: 20px;
+      }
     }
   }
 }

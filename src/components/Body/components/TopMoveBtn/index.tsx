@@ -14,8 +14,10 @@ export default function TopMoveBtn() {
   };
 
   return (
-    <div className={`top-move-btn ${showClassName}`} onClick={onClickBtn}>
-      <img src={arrowUpIcon} />
+    <div className='move-btn-wrapper'>
+      <div className={`top-move-btn ${showClassName}`} onClick={onClickBtn}>
+        <img src={arrowUpIcon} />
+      </div>
     </div>
   );
 }
