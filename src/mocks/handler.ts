@@ -3,6 +3,8 @@ import consultTab from './json/consultTab.json';
 import usageTab from './json/usageTab.json';
 import consultList from './json/consultList.json';
 import usageList from './json/usageList.json';
+import privacy from './json/privacy.json';
+import terms from './json/terms.json';
 import { searchMatchJsonList } from './util';
 
 export const handlers = [
@@ -37,5 +39,11 @@ export const handlers = [
       },
     };
     return HttpResponse.json(result, { status: 200 });
+  }),
+  http.get('/privacy', () => {
+    return HttpResponse.json(privacy, { status: 200 });
+  }),
+  http.get('/terms', () => {
+    return HttpResponse.json(terms, { status: 200 });
   }),
 ];
