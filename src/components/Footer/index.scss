@@ -15,13 +15,20 @@
     font-size: 14px;
     line-height: 24px;
     @include mixin.responsive('mobile') {
+      padding-top: 30px;
+      padding-bottom: 29px;
       font-size: 12px;
       line-height: 20px;
+      align-items: flex-start;
+      flex-direction: column-reverse;
     }
 
     .logo-side {
       .company-logo {
         height: 56px;
+        @include mixin.responsive('mobile') {
+          height: 32px;
+        }
       }
       .copyright {
         line-height: 24px;
@@ -35,12 +42,16 @@
       gap: 10px;
       @include mixin.responsive('mobile') {
         font-size: 12px;
+        align-items: flex-start;
       }
       .utils {
         display: flex;
         gap: 24px;
         color: #fff;
         font-size: 16px;
+        @include mixin.responsive('mobile') {
+          gap: 14px;
+        }
         > span {
           cursor: pointer;
           &:hover {
@@ -49,20 +60,48 @@
           }
           &.privacy {
             font-weight: bold;
+            font-size: 16px;
           }
           &.terms {
+            font-size: 16px;
             font-weight: 500;
           }
         }
       }
       .address-infos {
         font-style: normal;
-        display: inline-flex;
-        gap: 12px;
-        font-size: var(--font-md);
-        line-height: var(--line-height);
-        font: 400;
-        .email-to {
+        text-align: right;
+        // display: inline-flex;
+        // gap: 12px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 24px;
+        br:first-of-type,
+        br:nth-of-type(2),
+        br:nth-of-type(3),
+        br:nth-of-type(4),
+        br:nth-of-type(5),
+        br:nth-of-type(6) {
+          display: none;
+        }
+        > span {
+          margin-left: 12px;
+          @include mixin.responsive('mobile') {
+            margin-left: 0px;
+            margin-right: 12px;
+          }
+        }
+        @include mixin.responsive('mobile') {
+          flex-direction: column;
+          text-align: left;
+          font-size: 12px;
+          // br:first-of-type,
+          br:nth-of-type(2),
+          br:nth-of-type(3),
+          br:nth-of-type(4),
+          br:nth-of-type(5) {
+            display: block;
+          }
         }
       }
     }
