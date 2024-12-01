@@ -67,15 +67,17 @@
             }
 
             &:hover {
-              &::after {
-                transition: all 0.4s var(--cubic-bezier-primary);
-                background-color: var(--mint-900);
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                content: '';
-                opacity: 0.4;
-                width: 100%;
+              &:not(.select) {
+                &::after {
+                  transition: all 0.4s var(--cubic-bezier-primary);
+                  background-color: var(--mint-900);
+                  position: absolute;
+                  bottom: 0;
+                  left: 0;
+                  content: '';
+                  opacity: 0.4;
+                  width: 100%;
+                }
               }
             }
           }

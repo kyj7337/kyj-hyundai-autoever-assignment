@@ -13,4 +13,9 @@ a {
   &:active {
     color: unset;
   }
+  &[href^='mailto:'] {
+    all: unset;
+    cursor: pointer;
+    text-decoration: underline;
+  }
 }
