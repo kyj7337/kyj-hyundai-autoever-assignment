@@ -1,8 +1,8 @@
 import { searchMatchJsonList } from '@/mocks/util';
 import UsageList from '@/mocks/json/usageList.json';
 import ConsultList from '@/mocks/json/consultList.json';
-
 import { describe, expect, test } from 'vitest';
+
 describe('/faq API의 응답 유틸 테스트 (searchMatchJsonList)', () => {
   test('서비스 도입 탭에서 "무엇" 키워드 검색', () => {
     const { list, totalRecord } = searchMatchJsonList(ConsultList, {
