@@ -33,7 +33,7 @@ export default function Header() {
       <div className='header-inner'>
         <img className='logo' src={logo} />
         <div className='header-item-container'>
-          <ul>
+          <ul className={open ? 'open' : 'hide'}>
             {headerItems.map((item) => {
               const aTagName = pathname === item.path ? 'select' : '';
               return (
