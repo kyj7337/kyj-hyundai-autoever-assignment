@@ -1,3 +1,5 @@
+@use '@/common.scss' as mixin;
+
 .search-container {
   background-color: var(--gray-10);
   padding: var(--px-md);
@@ -5,6 +7,9 @@
   justify-content: center;
   align-items: center;
   margin-bottom: var(--px-md);
+  @include mixin.responsive('mobile') {
+    padding: 0;
+  }
   .input-wrapper {
     width: var(--search-bar-width);
     position: relative;
@@ -21,6 +26,10 @@
         color: #b4b9bc;
         font-weight: 500;
         font-size: 19px;
+        @include mixin.responsive('mobile') {
+          font-size: 15px;
+          font-weight: 400;
+        }
       }
       &:focus {
         outline: none;
@@ -47,6 +56,11 @@
       top: 12px;
       right: 12px;
       cursor: pointer;
+      @include mixin.responsive('mobile') {
+        width: 24px;
+        top: 8px;
+        right: 8px;
+      }
     }
   }
 }
