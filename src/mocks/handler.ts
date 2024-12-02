@@ -8,12 +8,14 @@ import terms from './json/terms.json';
 import { searchMatchJsonList } from './util';
 
 export const handlers = [
+  /** 탭 별로 카테고리 정보를 전달해준다. */
   http.get('/category', ({ request }) => {
     const url = new URL(request.url);
     const tabValue = url.searchParams.get('tab');
     const json = tabValue === 'intro' ? consultTab : usageTab;
     return HttpResponse.json(json, { status: 200 });
   }),
+  /** faq 의 리스트를 조건(검색, 카테고리 등)에 따라 전달 한다. */
   http.get('/faq', ({ request }) => {
     const url = new URL(request.url);
     const limit = url.searchParams.get('limit');
@@ -40,9 +42,11 @@ export const handlers = [
     };
     return HttpResponse.json(result, { status: 200 });
   }),
+  /** 개인정보 처리방침에 필요한 데이터를 전달한다 */
   http.get('/privacy', () => {
     return HttpResponse.json(privacy, { status: 200 });
   }),
+  /** 이용약관에 필요한 데이터를 전달한다 */
   http.get('/terms', () => {
     return HttpResponse.json(terms, { status: 200 });
   }),
