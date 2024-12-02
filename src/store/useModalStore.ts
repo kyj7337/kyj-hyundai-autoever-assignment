@@ -9,6 +9,7 @@ interface ModalStore {
   setShowTermsModal: (v: boolean) => void;
 }
 
+/** 이용약관, 개인정보 처리방침에 관련된 모달 제어 store */
 export const useModalStore = create<ModalStore>((set) => ({
   showPrivacyModal: false,
   setShowPrivacyModal(v) {

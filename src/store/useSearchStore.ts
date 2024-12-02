@@ -18,7 +18,7 @@ interface SearchStore {
   offset: number;
   setOffset: (v: number) => void;
 }
-
+/** FAQ search 와 관련된 store */
 export const useSearchStore = create<SearchStore>((set) => ({
   searchString: '',
   setSearchString(v) {
