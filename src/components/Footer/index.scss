@@ -14,6 +14,15 @@
     max-width: var(--max-width);
     font-size: 14px;
     line-height: 24px;
+    @include mixin.responsive('tablet') {
+      padding-top: 50px;
+      padding-bottom: 35px;
+      font-size: 12px;
+      line-height: 20px;
+      align-items: flex-start;
+      flex-direction: column-reverse;
+      gap: 15px;
+    }
     @include mixin.responsive('mobile') {
       padding-top: 30px;
       padding-bottom: 29px;
@@ -29,9 +38,15 @@
         @include mixin.responsive('mobile') {
           height: 32px;
         }
+        @include mixin.responsive('tablet') {
+          height: 48px;
+        }
       }
       .copyright {
         line-height: 24px;
+        @include mixin.responsive('tablet') {
+          font-size: 14px;
+        }
       }
     }
     .desc-side {
@@ -44,6 +59,9 @@
         font-size: 12px;
         align-items: flex-start;
       }
+      @include mixin.responsive('tablet') {
+        align-items: flex-start;
+      }
       .utils {
         display: flex;
         gap: 24px;
@@ -52,6 +70,9 @@
         @include mixin.responsive('mobile') {
           gap: 14px;
         }
+        // @include mixin.responsive('tablet') {
+        //   font-size: 14px;
+        // }
         > span {
           cursor: pointer;
           &:hover {
@@ -61,10 +82,16 @@
           &.privacy {
             font-weight: bold;
             font-size: 16px;
+            @include mixin.responsive('mobile') {
+              font-size: 14px;
+            }
           }
           &.terms {
             font-size: 16px;
             font-weight: 500;
+            @include mixin.responsive('mobile') {
+              font-size: 14px;
+            }
           }
         }
       }
@@ -84,12 +111,27 @@
         br:nth-of-type(6) {
           display: none;
         }
+        @include mixin.responsive('tablet') {
+          br:nth-of-type(3),
+          br:nth-of-type(5) {
+            display: block;
+          }
+        }
         > span {
           margin-left: 12px;
           @include mixin.responsive('mobile') {
             margin-left: 0px;
             margin-right: 12px;
           }
+          @include mixin.responsive('tablet') {
+            margin-left: 0px;
+            margin-right: 12px;
+          }
+        }
+        @include mixin.responsive('tablet') {
+          flex-direction: column;
+          text-align: left;
+          font-size: 14px;
         }
         @include mixin.responsive('mobile') {
           flex-direction: column;

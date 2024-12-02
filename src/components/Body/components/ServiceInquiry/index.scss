@@ -8,8 +8,13 @@
   }
   .inquiry-box {
     display: flex;
-
     justify-content: space-between;
+    @include mixin.responsive('mobile') {
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
     .inquiry-item {
       display: flex;
       justify-content: center;
@@ -21,12 +26,12 @@
       width: 30%;
       height: 80px;
       cursor: pointer;
-      //   @include mixin.responsive('tablet') {
-      //   }
-      //   @include mixin.responsive('mobile') {
-      //   }
-      //   @include mixin.responsive('tablet') {
-      //   }
+      @include mixin.responsive('mobile') {
+        width: 100%;
+        justify-content: unset;
+        padding: 0px 16px;
+        height: 72px;
+      }
       &:hover {
         background-color: var(--gray-50);
       }

@@ -16,6 +16,9 @@
       @include mixin.responsive('mobile') {
         flex-direction: column;
       }
+      @include mixin.responsive('tablet') {
+        flex-direction: column;
+      }
       &.selected {
         background-color: var(--gray-10);
       }
@@ -32,10 +35,19 @@
           font-size: 12px;
           margin-bottom: 4px;
         }
+        @include mixin.responsive('tablet') {
+          justify-content: flex-start;
+          font-size: 16px;
+          margin-bottom: 4px;
+          padding: 0;
+        }
       }
       .question {
         font-weight: bold;
         padding-left: var(--faq-list-a-padding-h);
+        @include mixin.responsive('tablet') {
+          padding: 0;
+        }
       }
       .arrow-btn {
         width: 32px;
@@ -45,6 +57,11 @@
         transition: all 0.4s var(--cubic-bezier-primary);
         @include mixin.responsive('mobile') {
           width: 24px;
+          top: 36px;
+          right: 6px;
+        }
+        @include mixin.responsive('tablet') {
+          width: 28px;
           top: 36px;
           right: 6px;
         }

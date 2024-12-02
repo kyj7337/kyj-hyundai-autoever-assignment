@@ -1,3 +1,5 @@
+@use '@/common.scss' as mixin;
+
 .process-container {
   > h2 {
     line-height: var(--line-height-sm);
@@ -7,14 +9,44 @@
   .process-box {
     display: flex;
     justify-content: space-between;
+    @include mixin.responsive('mobile') {
+      flex-direction: column;
+    }
+    @include mixin.responsive('tablet') {
+      flex-direction: column;
+    }
     .process-item {
       position: relative;
       padding: 0 24px;
+      @include mixin.responsive('mobile') {
+        margin-bottom: 20px;
+      }
+      @include mixin.responsive('tablet') {
+        margin-bottom: 26px;
+      }
       .process-ic {
         // width: 48px;
+        @include mixin.responsive('mobile') {
+          width: 40px;
+          position: absolute;
+          left: 0px;
+        }
+        @include mixin.responsive('tablet') {
+          width: 48px;
+          position: absolute;
+          left: 0px;
+        }
       }
       .title {
         font-weight: bold;
+        @include mixin.responsive('mobile') {
+          padding-left: 32px;
+          font-size: 16px;
+        }
+        @include mixin.responsive('tablet') {
+          padding-left: 36px;
+          font-size: 18px;
+        }
       }
       .desc {
         margin-top: 8px;
@@ -24,9 +56,25 @@
         padding-right: 10px;
         font-weight: 500;
         line-height: var(--line-height-sm);
+        @include mixin.responsive('mobile') {
+          padding-left: 32px;
+          font-size: 14px;
+          word-break: normal;
+        }
+        @include mixin.responsive('tablet') {
+          padding-left: 36px;
+          font-size: 16px;
+          word-break: normal;
+        }
       }
       &:not(&:last-child) {
         &::after {
+          @include mixin.responsive('mobile') {
+            display: none;
+          }
+          @include mixin.responsive('tablet') {
+            display: none;
+          }
           position: absolute;
           content: '';
           background: url('@/assets/arrowRight.svg');

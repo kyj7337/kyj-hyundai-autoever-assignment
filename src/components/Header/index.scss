@@ -89,6 +89,9 @@
                 color: var(--mint-900);
               }
               &::after {
+                width: 100%;
+                opacity: 1;
+                background-color: var(--mint-900);
                 @include mixin.responsive('mobile') {
                   width: 0%;
                 }

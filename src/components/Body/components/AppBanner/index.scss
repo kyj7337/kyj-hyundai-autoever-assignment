@@ -12,6 +12,7 @@
   align-items: center;
   @include mixin.responsive('mobile') {
     padding: 20px;
+    margin-top: 36px;
   }
   > h2 {
     font-size: 32px;
@@ -23,6 +24,11 @@
     }
     @include mixin.responsive('mobile') {
       font-size: 16px;
+      margin-bottom: 16px;
+    }
+    @include mixin.responsive('tablet') {
+      font-size: 20px;
+      margin-bottom: 24px;
     }
   }
   .store-container {
@@ -36,6 +42,11 @@
       max-width: 264px;
       gap: 12px;
     }
+    @include mixin.responsive('tablet') {
+      width: 100%;
+      // max-width: 264px;
+      gap: 12px;
+    }
     .store-box {
       width: 392px;
       display: flex;
@@ -47,9 +58,21 @@
       height: 64px;
       @include mixin.responsive('mobile') {
         width: 100%;
+        height: 48px;
+      }
+      @include mixin.responsive('tablet') {
+        width: 100%;
+        height: 56px;
+        font-size: 14px;
       }
       .app-icon {
         margin-right: 4px;
+        @include mixin.responsive('mobile') {
+          height: 24px;
+        }
+        @include mixin.responsive('tablet') {
+          height: 24px;
+        }
       }
     }
   }
