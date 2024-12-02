@@ -1,16 +1,13 @@
-import { useEffect, useState } from 'react';
-
-import { initMockAPI } from './mocks';
-
 import Header from './components/Header';
 import './index.scss';
 import Body from './components/Body';
 import Footer from './components/Footer';
+import useMockApiConnect from './hooks/useMockApiConnect';
+import PrivacyModal from './components/Modal/components/PrivacyModal';
+import TermsModal from './components/Modal/components/TermsModal';
 function App() {
-  const [isReadyToRender, setIsReadyToRender] = useState(false);
-  useEffect(() => {
-    initMockAPI().then(() => setIsReadyToRender(true));
-  }, []);
+  const { isReadyToRender } = useMockApiConnect();
+
   if (!isReadyToRender) return null;
 
   return (
@@ -18,6 +15,8 @@ function App() {
       <Header />
       <Body />
       <Footer />
+      <PrivacyModal />
+      <TermsModal />
     </main>
   );
 }

@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import './index.scss';
 import kiaLogo from '@/assets/kiaLogo.svg';
+import { useModalStore } from '@/store/useModalStore';
 
 export default function Footer() {
+  const { setShowPrivacyModal, setShowTermsModal } = useModalStore();
   return (
     <footer className='footer-container'>
       <div className='footer-content'>
@@ -11,8 +14,12 @@ export default function Footer() {
         </div>
         <div className='desc-side'>
           <div className='utils'>
-            <span className='privacy'>개인정보 처리방침</span>
-            <span className='terms'>이용약관</span>
+            <span onClick={() => setShowPrivacyModal(true)} className='privacy'>
+              개인정보 처리방침
+            </span>
+            <span onClick={() => setShowTermsModal(true)} className='terms'>
+              이용약관
+            </span>
           </div>
           <address className='address-infos'>
             <span>서울특별시 서초구 헌릉로 12</span>

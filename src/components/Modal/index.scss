@@ -1,2 +1,62 @@
+@use '@/common.scss' as mixin;
+
 .modal-container {
+  z-index: 9999999;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  //   padding: 0px 20px;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  flex-direction: column;
+  .modal-content {
+    background-color: #fff;
+    min-width: 320px;
+    max-width: 960px;
+    width: 100%;
+    height: 100%;
+    max-height: calc(100% - 98px);
+    padding: 24px 40px;
+    overflow: auto;
+    .content-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4px 0px;
+      border-bottom: 2px solid var(--midnight-900);
+      .title {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 0.4em 1em 0.4em 0;
+        @include mixin.responsive('mobile') {
+          font-size: 16px;
+        }
+      }
+      > img {
+        cursor: pointer;
+        @include mixin.responsive('mobile') {
+          width: 24px;
+        }
+      }
+    }
+    .content-children {
+      padding-top: 16px;
+      overflow-y: scroll;
+      font-size: 16px;
+      line-height: var(--line-height-sm);
+      word-break: keep-all;
+      text-indent: 0;
+      @include mixin.responsive('mobile') {
+        font-size: 12px;
+        strong {
+          font-size: 12px;
+        }
+      }
+    }
+  }
 }
