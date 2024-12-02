@@ -71,7 +71,6 @@
       }
     }
     .answer-section {
-      border-top: 1px solid var(--gray-100);
       font-size: 1rem;
       line-height: var(--line-height-lg);
 
@@ -82,6 +81,9 @@
 
       overflow: hidden;
       transition: all 0.4s var(--cubic-bezier-primary);
+      border-top: 1px solid var(--gray-100);
+      &.selected {
+      }
 
       .inner {
         padding: var(--faq-list-q-padding);

@@ -37,7 +37,7 @@ const ListItem = memo((props: ListItemProps) => {
         style={{
           height: isSelected ? `${Number(answerRef.current?.scrollHeight)}px` : '0',
         }}
-        className='answer-section'
+        className={`answer-section ${selectClassName}`}
       >
         <div className='inner' dangerouslySetInnerHTML={{ __html: item.answer }} />
       </div>
