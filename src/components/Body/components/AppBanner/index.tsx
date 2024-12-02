@@ -27,7 +27,7 @@ export default function AppBanner() {
       </h2>
       <div className='store-container'>
         {Apps.map((item) => (
-          <a href={item.link} className='store-box' key={item.name}>
+          <a href={item.link} target='_blank' className='store-box' key={item.name}>
             {item.img}
             <span>{item.name}</span>
           </a>

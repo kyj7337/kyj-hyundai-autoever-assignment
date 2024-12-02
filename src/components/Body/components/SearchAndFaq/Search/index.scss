@@ -45,6 +45,12 @@
       opacity: 1;
       transition: all 0.4s ease;
       cursor: pointer;
+      @include mixin.responsive('tablet') {
+        top: 14px;
+      }
+      @include mixin.responsive('mobile') {
+        top: 10px;
+      }
       &.hide {
         visibility: hidden;
         opacity: 0;
@@ -60,6 +66,9 @@
         width: 24px;
         top: 8px;
         right: 8px;
+      }
+      @include mixin.responsive('tablet') {
+        width: 24px;
       }
     }
   }

@@ -42,6 +42,7 @@ export default function ServiceInquiry() {
             <a
               href={item.link}
               download={item.download && 'wiblebiz 상품제안서.pdf'}
+              target='_blank'
               className='inquiry-item'
               key={item.name}
             >
