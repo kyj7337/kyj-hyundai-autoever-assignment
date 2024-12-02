@@ -53,7 +53,6 @@ const fetcher = async (args: FaqListFetcherArgs) => {
       params,
     })
     .then(({ data }) => {
-      // setSearchAction(false);
       return data;
     });
 };

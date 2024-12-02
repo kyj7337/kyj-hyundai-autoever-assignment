@@ -15,20 +15,19 @@ export default function useChangeCategoryId({
   setSelectIdx: Dispatch<SetStateAction<number | null>>;
   selectTab: Tab;
 }) {
-  const { setOffset, searchAction, setSearchAction } = useSearchStore();
+  const { setOffset, searchAction } = useSearchStore();
 
-  /** 검색어를 입력하여 FAQ 요청을 할 경우 */
-  useEffect(() => {
-    setFaqListData([]);
-    setSelectIdx(null);
-    setOffset(0);
-  }, [searchAction]);
+  // /** 검색어를 입력하여 FAQ 요청을 할 경우 */
+  // useEffect(() => {
+  //   setFaqListData([]);
+  //   setSelectIdx(null);
+  //   setOffset(0);
+  // }, [searchAction]);
 
   /** 탭, 카테고리가 변경됐을 경우 */
   useEffect(() => {
     setFaqListData([]);
     setSelectIdx(null);
     setOffset(0);
-    setSearchAction(false);
-  }, [categoryId, selectTab]);
+  }, [categoryId, selectTab, searchAction]);
 }
