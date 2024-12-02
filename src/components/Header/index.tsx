@@ -2,6 +2,7 @@ import logo from '@/assets/logo.svg';
 import './index.scss';
 import { UIEvent, useEffect, useState, WheelEvent } from 'react';
 import useScrollClassName from './hooks/useScrollClassName';
+import HamburgerBtn from './components/HamburgerBtn';
 
 const headerItems = [
   {
@@ -25,6 +26,7 @@ const headerItems = [
 export default function Header() {
   const pathname = window.location.pathname;
   const { headerClassName } = useScrollClassName();
+  const [open, setOpen] = useState(false);
 
   return (
     <header className={`header-container ${headerClassName}`}>
@@ -44,7 +46,9 @@ export default function Header() {
             })}
           </ul>
         </div>
-        {/* //TODO: 메뉴 버튼 사라지고 나타나는 애니메이션 작업하기 */}
+        <div className='hamburger-btn'>
+          <HamburgerBtn open={open} setOpen={setOpen} />
+        </div>
       </div>
     </header>
   );

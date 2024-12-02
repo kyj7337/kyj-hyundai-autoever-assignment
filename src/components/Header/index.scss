@@ -15,26 +15,27 @@
     }
     .logo {
       cursor: pointer;
+      @include mixin.responsive('mobile') {
+        width: 120px;
+        height: 40px;
+      }
     }
     .header-item-container {
       flex: 1 1;
       margin-right: -20px;
 
       > ul {
-        @include mixin.responsive('tablet') {
-          display: none;
-        }
-        @include mixin.responsive('mobile') {
-          display: none;
-        }
         & {
           display: flex;
           justify-content: flex-end;
           margin: 0;
+          @include mixin.responsive('tablet') {
+            display: none;
+          }
+          @include mixin.responsive('mobile') {
+            display: none;
+          }
         }
-        // @include mixin.responsive('desktop') {
-        //   font-size: 10px;
-        // }
         > li {
           margin: 0 16px;
           > a {
@@ -82,6 +83,14 @@
             }
           }
         }
+      }
+    }
+    .hamburger-btn {
+      display: none;
+      @include mixin.responsive('mobile') {
+        display: block;
+        width: 16px;
+        height: 16px;
       }
     }
   }
