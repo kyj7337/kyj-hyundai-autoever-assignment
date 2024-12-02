@@ -3,6 +3,7 @@ import { Tab } from '@/components/Body';
 import { useSearchStore } from '@/store/useSearchStore';
 import { Dispatch, memo, SetStateAction, useEffect, useRef, useState } from 'react';
 import arrowDown from '@/assets/arrowDown.svg';
+import icFill from '@/assets/icFill.svg';
 import './index.scss';
 import useChangeCategoryId from './useChangeCategoryId';
 
@@ -88,4 +89,10 @@ export default function QuestionList({ selectTab }: { selectTab: Tab }) {
       </div>
     );
   }
+  return (
+    <div className='empty-result-container'>
+      <img src={icFill} className='ic-fill' />
+      <span className='empty-result-text'>검색결과가 없습니다.</span>
+    </div>
+  );
 }

@@ -132,3 +132,32 @@
     }
   }
 }
+
+.empty-result-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid var(--gray-200);
+  padding: 160px 0px;
+  @include mixin.responsive('mobile') {
+    padding: 120px 0px;
+  }
+  .ic-fill {
+    width: 64px;
+    margin-bottom: 16px;
+    @include mixin.responsive('mobile') {
+      width: 32px;
+      margin-bottom: 8px;
+    }
+  }
+  .empty-result-text {
+    font-size: 18px;
+    line-height: var(--line-height-md);
+    color: var(--gray-500);
+    font-weight: 500;
+    @include mixin.responsive('mobile') {
+      font-size: 14px;
+    }
+  }
+}
