@@ -57,7 +57,7 @@ const fetcher = async (args: FaqListFetcherArgs) => {
       return data;
     });
 };
-
+/** FAQ 내용 GET */
 export default function useGetFaqList(tab: Tab) {
   const { limit, offset, categoryId, searchAction, searchString } = useSearchStore();
 

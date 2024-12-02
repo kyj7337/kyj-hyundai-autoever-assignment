@@ -9,7 +9,7 @@ export interface PrivacyTextResponse {
 const fetcher = async () => {
   return axios.get<PrivacyTextResponse>('/privacy').then(({ data }) => data);
 };
-
+/** 개인정보 처리방침 HTML 가져오기 */
 export default function useGetPrivacyText(enabled: boolean) {
   return useQuery({
     queryKey: ['/privacy'],
