@@ -69,19 +69,19 @@
       }
       &:not(&:last-child) {
         &::after {
+          position: absolute;
+          content: '';
+          background: url('../../../../assets/arrowRight.svg');
+          width: 24px;
+          height: 24px;
+          right: -5px;
+          top: calc(50% - 5px);
           @include mixin.responsive('mobile') {
             display: none;
           }
           @include mixin.responsive('tablet') {
             display: none;
           }
-          position: absolute;
-          content: '';
-          background: url('@/assets/arrowRight.svg');
-          width: 24px;
-          height: 24px;
-          right: -5px;
-          top: calc(50% - 5px);
         }
       }
     }
