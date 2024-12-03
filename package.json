@@ -1,8 +1,22 @@
 {
   "name": "kyj-hyundai-autoever-assignment",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "keywords": [
+    "현대오토에버",
+    "김영준",
+    "프론트엔드"
+  ],
+  "description": "현대오토에버 [Fast Track] 우수 SW개발자 특별 영입 과제 테스트",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kyj7337/kyj-hyundai-autoever-assignment"
+  },
+  "author": {
+    "name": "김영준",
+    "email": "youngjun940432@gmail.com"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
